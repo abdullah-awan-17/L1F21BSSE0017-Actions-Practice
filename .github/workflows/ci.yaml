@@ -1,0 +1,38 @@
+name: ci-wf
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - develop
+jobs:
+ ci-job:
+   runs-on: ubuntu-latest
+   steps:
+     - name: welcome step
+       run: echo "Welcome to the GitHub Actions"
+     - name: Checkout Repository
+       uses: actions/checkout@v4
+     - name: Repository Information
+       run: |
+          echo "Repository Name: ${{github.repository}}"
+          echo "Type of Event that triggered this action: ${{github.event_name}}"
+          echo "Commit SHA: ${{github.sha}}"
+          echo "Repository URL: https://github.com/${{github.repository}}"
+          echo "Workflow Name: ${{github.workflow}}"
+          echo "Job Name: ${{github.job}}"
+     - name: Display Git Version and Branch
+       run: |
+          echo "Git Version:"
+          git --version
+          echo "Current Git Branch:"
+          git branch
+     - name: Display Git Status and Info
+       run: |
+          echo "Git Status:"
+          git status --short
+     - name: Display Git Log
+       run: |
+          echo "Git Log (last 5 commits):"
+          git log -n 5 --oneline
