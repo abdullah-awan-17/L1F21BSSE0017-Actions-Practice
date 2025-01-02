@@ -32,10 +32,6 @@ jobs:
        run: |
           echo "Git Status:"
           git status --short
-          echo "Git Config (Global):"
-          git config --global --list
-          echo "Git Remote URL:"
-          git remote -v
      - name: Display Git Log
        run: |
           echo "Git Log (last 5 commits):"
