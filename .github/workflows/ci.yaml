@@ -27,7 +27,7 @@ jobs:
           echo "Git Version:"
           git --version
           echo "Current Git Branch:"
-          git branch --show-current
+          git branch
      - name: Display Git Status and Info
        run: |
           echo "Git Status:"
